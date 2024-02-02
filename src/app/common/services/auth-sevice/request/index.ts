@@ -13,6 +13,7 @@ const loadUserDependencies = async (
 
     if (Cookies.get(ECookieValues.REFRESH_TOKEN)) {
         try {
+            console.log('before_mount')
             // const data = await MeUserRequest()
             //
             // setAuthData(true, data)

@@ -5,6 +5,12 @@ import {SnackbarProvider} from "notistack";
 import {EventProvider} from "@app/common/services/event-service";
 import {LocalStorageProvider} from "@app/common/services/local-storage-service/provider";
 import {AuthProvider} from "@app/common/services/auth-sevice";
+import {
+    SnackbarComponentError,
+    SnackbarComponentInfo,
+    SnackbarComponentSuccess,
+    SnackbarComponentWarning
+} from "@app/components/snackbar";
 
 const client = new QueryClient({
     defaultOptions: {
@@ -27,6 +33,12 @@ const App = () => {
             maxSnack={3}
             autoHideDuration={3000}
             action={(snackbarId) => snackbarId}
+            Components={{
+                error: SnackbarComponentError,
+                success: SnackbarComponentSuccess,
+                info: SnackbarComponentInfo,
+                warning: SnackbarComponentWarning
+            }}
         >
             <EventProvider>
                 <QueryClientProvider client={client}>

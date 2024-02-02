@@ -1,4 +1,5 @@
 const MainPage = () => {
+    console.log('asd')
     return (
         <div>
             MainPage

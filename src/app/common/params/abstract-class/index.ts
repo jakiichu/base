@@ -16,12 +16,14 @@ abstract class CryptData {
 
     protected _baseCrypt(item: string, crypt: boolean): string {
         let result = "";
-        for (let i = 0; i < item.length; i++) {
-            const charCode: number = item.charCodeAt(i),
-                decryptedChar: string = crypt ? String.fromCharCode(charCode + this.key) : String.fromCharCode(charCode - this.key)
-            result += decryptedChar;
-        }
-        return result;
+        if (item) {
+            for (let i = 0; i < item.length; i++) {
+                const charCode: number = item.charCodeAt(i),
+                    decryptedChar: string = crypt ? String.fromCharCode(charCode + this.key) : String.fromCharCode(charCode - this.key)
+                result += decryptedChar;
+            }
+            return result;
+        } else return item
     }
 }
 
